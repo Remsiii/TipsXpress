@@ -35,8 +35,8 @@ const Nav = () => {
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/subscription' className='black_btn'>
-              Subscription
+            <Link href='/scoreboard' className='black_btn'>
+              Scoreboard
             </Link>
 
             <button type='button' onClick={signOut} className='outline_btn'>

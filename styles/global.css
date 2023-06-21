@@ -101,6 +101,12 @@
   @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
 }
 
+.white_gradient {
+	@apply mt-5 text-lg sm:text-xl max-w-2xl;
+  --white-gradient-color: linear-gradient(to right, white, lightgray);
+  text-fill-color: transparent;
+}
+
 .desc {
   @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
 }
@@ -240,6 +246,19 @@ textarea {
 	font: inherit;
 }
 
+.containerFootballScore {
+	margin-top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.containerFootballScore > * + * {
+	margin-top: 55px;
+}
+
 .match {
 	background-color: var(--color-bg-primary);
 	display: flex;
@@ -251,7 +270,6 @@ textarea {
 	line-height: 1.5;
 	color: var(--color-text-primary);
 	background-color: var(--color-bg-secondary);
-	
 }
 
 .match-header {
@@ -412,10 +430,3 @@ textarea {
 }
 
 
-.containerFootballScore {
-	margin-top: 2 0px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
