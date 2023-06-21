@@ -14,7 +14,7 @@ const Home = () => (
     </p>
 
     {/* <Feed /> */}
-
+    <a className="buttonSubscribe" href="https://www.paypal.com/at/home">Subscribe</a>
   </section>
 );
 
