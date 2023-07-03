@@ -481,11 +481,11 @@ textarea {
 
 
 .buttonSubscribe {
-	--c: #fff; /* text color */
+	--c: #e3e3e3; /* text color */
 	
 	background: 
 	  linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
-	  #E97F02; /* background color */
+	  #e97d02a3; /* background color */
 	color: #0000;
 	border: none;
 	transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
@@ -495,11 +495,13 @@ textarea {
 	outline-offset: .1em;
 	transition: 0.3s;
   }
+
   .buttonSubscribe:hover,
   .buttonSubscribe:focus-visible {
 	--_p: 0%;
 	--_i: 1;
   }
+  
   .buttonSubscribe:active {
 	text-shadow: none;
 	color: var(--c);
