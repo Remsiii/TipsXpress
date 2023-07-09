@@ -7,12 +7,12 @@ const SubscriptionInfo = () => {
     <div className="px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 bg-clip-padding bg-opacity-60 border border-gray-200" style={{ backdropFilter: 'blur(20px)' }}>
     <div className='flex pt-[30px] px-[40px]'>
    <div className="min-w-full">
-       <p className="text-[#00153B] text-[20px] leading-[40px] font-semibold">
-           Your Subscription
+       <p className="text-[#00153B] text-[20px] leading-[40px] font-semibold sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+            Ihr Abonnement
        </p>
 
        <div>
-           <p className="text-[#114A88] text-[15px] leading-[27px] font-medium">
+           <p className="text-[#114A88] text-[18px] leading-[27px] font-medium">
                Get your tips now
            </p>
        </div>
@@ -24,7 +24,7 @@ const SubscriptionInfo = () => {
                     <div className="flex justify-end">
                         <div className="bg-[#F6F6F7] rounded-[20px] flex justify-center align-center px-[12px]">
                             <p className="text-[#00153B] text-[12px] leading-[28px] font-bold">
-                                Value
+                                Preis
                             </p>
                         </div>
                     </div>
@@ -34,13 +34,13 @@ const SubscriptionInfo = () => {
                             Start Now
                         </p>
                         <p className="text-[#00153B] text-[50px] leading-[63px] font-bold">
-                            20€
+                            29€
                         </p>
                     </div>
 
                     <div>
                         <p className="text-[#717F87] text-[18px] leading-[28px] font-medium">
-                            50+ Tipps Per Month
+                            <strong className="text-[#5c0909]">30+</strong> Tips Per Month
                         </p>
                         <p className="text-[#717F87] text-[18px] leading-[28px] font-medium">
                             24/7 support
@@ -57,9 +57,6 @@ const SubscriptionInfo = () => {
                             Get Notified When A New Tip Appearse
                         </p>
                         <p className="text-[#717F87] text-[14px] leading-[24px] font-medium">
-                            Corporate email addresses
-                        </p>
-                        <p className="text-[#717F87] text-[14px] leading-[24px] font-medium">
                             Livescore
                         </p>
                         <p className="text-[#717F87] text-[14px] leading-[24px] font-medium">
@@ -68,7 +65,7 @@ const SubscriptionInfo = () => {
                     </div>
 
                     <div className="mt-[25px]">
-                    <button className="bg-[#006EF5] rounded-[5px] py-[15px] px-[25px] text-[#fff] text-[14px] leading-[17px] font-semibold">Get Started</button>
+                    <a href="https://www.paypal.com/paypalme/petabet24?locale.x=de_AT" className="bg-[#006EF5] rounded-[5px] py-[15px] px-[25px] text-[#fff] text-[14px] leading-[17px] font-semibold">Get Started</a>
                     </div>
                 </div>
             </div>

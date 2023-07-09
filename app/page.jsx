@@ -2,11 +2,20 @@
 
 import Feed from "@components/Feed";
 import Scoreboard from '@components/Subs';
+import Nav from "@components/Nav";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const { data: session } = useSession();
+  const [providers, setProviders] = useState(null);
 
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
+  }, []);
   return(
 
     <section className='w-full flex-center flex-col'>
@@ -22,9 +31,23 @@ const Home = () => {
   
 
     {!session?.user ? (
-      <a className="buttonSubscribe" href="/subscription">Subscribe!</a>
+      <div>
+      {providers &&
+        Object.values(providers).map((provider) => (
+          <a
+            type='button'
+            className="buttonSubscribe"
+            key={provider.name}
+            onClick={() => {
+              signIn(provider.id);
+            }}
+          >
+            Subscribe!
+          </a>
+        ))}
+      </div>
     ) : (
-      <a className="buttonSubscribe" href="/scoreboard">Scoreboard</a>
+      <a className="buttonSubscribe" href="/subscription">Subscribe!</a>
     )}
 
     </section>
