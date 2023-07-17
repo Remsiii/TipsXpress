@@ -50,7 +50,7 @@ const MyProfile = () => {
   return (
     <Profile
       name='My'
-      desc='Welcome to your personalized profile page. Here you can edit your profile and payments'
+      desc='Willkommen auf Ihrer personalisierten Profilseite. Hier können Sie Ihr Profil und Ihre Zahlungen bearbeiten'
       data={myPosts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}

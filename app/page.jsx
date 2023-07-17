@@ -4,6 +4,7 @@ import Feed from "@components/Feed";
 import Scoreboard from '@components/Subs';
 import Nav from "@components/Nav";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { useEffect, useState } from "react";
 
 const Home = () => {
@@ -25,10 +26,10 @@ const Home = () => {
       <span className='orange_gradient text-center'>PetaBet</span>
       </h1>
       <p className='mt-5 text-lg text-gray-300 sm:text-xl max-w-2xl text-center'>
-      Get the best soccer betting tips and increase your chances of winning. Join PetaBet now!
+      Hol dir die besten Fußball-Wetttipps und erhöhe dir die Gewinnchancen. Meld dich jetzt an!
       </p>
       
-  
+      
 
     {!session?.user ? (
       <div>
@@ -48,6 +49,7 @@ const Home = () => {
       </div>
     ) : (
       <a className="buttonSubscribe" href="/subscription">Subscribe!</a>
+      
     )}
 
     </section>
