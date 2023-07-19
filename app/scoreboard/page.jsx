@@ -22,16 +22,13 @@ const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, tea
 						{date} <strong className="font-medium">{time}</strong>
 						</div>
 						<div className="match-score">
-							<span className="match-score-number match-score-number--leading">{score1}</span>
-							<span className="match-score-divider">:</span>
-							<span className="match-score-number">{score2}</span>
 						</div>
 						<div className="match-bet-options">
 							<button className="match-bet-option">1.48</button>
 							<button className="match-bet-option">3.84</button>
 							<button className="match-bet-option">5.24</button>
 						</div>
-						<a className="match-bet-place text-white/90 shadow-lg" href="https://sports.tipico.com/de">Place a bet</a>
+						<a className="match-bet-place text-white/90 shadow-lg" href="https://sports.tipico.com/de">Zu den Details</a>
 					</div>
 				</div>
 				<div className="columnScore">
@@ -47,7 +44,14 @@ const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, tea
 		</div>
 	);
   };
+
+//   Erzielen beide teams ein tor?
+// Wer gewinnt
+// Over/under
+// Wie viele tore erzielt team 1/2 -Over/Under
 const Scoreboard = () => {
+
+	const questions = ["Who will score the first goal?", "Will both teams score a goal?"];
 	return (
 		<>
 		<h1 className='mt-[-50px] mb-[35px] text-5xl font-serif'>Scoreboard</h1>
@@ -57,8 +61,12 @@ const Scoreboard = () => {
 		  <Match league="English Premier League" team1="Man City" team2="Arsenal" score1="4" score2="1" 
 		   date="5 May at" time="13:30" team1Img="https://upload.wikimedia.org/wikipedia/de/thumb/0/09/Wappen_Manchester_City_2016.svg/150px-Wappen_Manchester_City_2016.svg.png" team2Img="https://upload.wikimedia.org/wikipedia/de/thumb/3/32/FC_Arsenal_%28seit_2002%29.svg/1200px-FC_Arsenal_%28seit_2002%29.svg.png" />
 		</div>
+		#write a beatiful dropdown menu for the questions
+		
+		 
 		</>
 	  );
 };
+
 
 export default Scoreboard;

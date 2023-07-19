@@ -1,7 +1,6 @@
 "use client";
 
 import Feed from "@components/Feed";
-import Scoreboard from '@components/Subs';
 import Nav from "@components/Nav";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
