@@ -24,8 +24,8 @@ const Nav = () => {
         <Image
           src='/assets/images/PETABET_Slogen.png'
           alt='logo'
-          width={130}
-          height={130}
+          width={160}
+          height={160}
           className='object-contain'
         />
       </Link>

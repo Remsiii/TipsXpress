@@ -1,9 +1,55 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PaypalCheckoutButton from "@components/PaypalCheckoutButton";
+import { CLIENT_ID } from '../Config/Config'
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const SubscriptionInfo = () => {
+  //paypal
+
+    const [success, setSuccess] = useState(false);
+    const [ErrorMessage, setErrorMessage] = useState("");
+    const [orderID, setOrderID] = useState(false);
+
+    // creates a paypal order
+    const createOrder = (data, actions) => {
+        return actions.order.create({
+            purchase_units: [
+                {
+                    description: "Betting Tips",
+                    amount: {
+                        value: 20,
+                    },
+                },
+            ],
+        }).then((orderID) => {
+                setOrderID(orderID);
+                return orderID;
+            });
+    };
+
+    // check Approval
+    const onApprove = (data, actions) => {
+        return actions.order.capture().then(function (details) {
+            const { payer } = details;
+            setSuccess(true);
+        });
+    };
+
+    //capture likely error
+    const onError = (data, actions) => {
+        setErrorMessage("An Error occured with your payment ");
+    };
+
+    useEffect(() => {
+        if (success) {
+            alert("Payment successful!!");
+            console.log('Order successful . Your order id is--', orderID);
+        }
+    },[success]);
+
+
+    
   const subscriptionPrice = 29; // Beispielpreis für die Subscription
   const [discountedPrice, setDiscountedPrice] = useState(subscriptionPrice);
   const [discountedAmount, setDiscountedAmount] = useState(0);
@@ -125,13 +171,18 @@ const SubscriptionInfo = () => {
                   </form>
                 </div>
 
-                <div className="paypal-button-container">
-                  <PayPalScriptProvider
-                    options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}
-                  >
-                    <PaypalCheckoutButton product={product} />
-                  </PayPalScriptProvider>
+            <PayPalScriptProvider options={{ "client-id": CLIENT_ID , currency: "EUR"}}>
+            <div>
+                <div className="wrapper">
                 </div>
+                <br></br>
+                    <PayPalButtons
+                        style={{ layout: "vertical" }}
+                        createOrder={createOrder}
+                        onApprove={onApprove}
+                    />
+            </div>
+        </PayPalScriptProvider>
               </div>
             </div>
           </div>
