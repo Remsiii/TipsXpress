@@ -1,4 +1,5 @@
 import React from 'react';
+import detailsData from './matchDetailsData.json';
 
 const bettingDetails = () => {
     return (
@@ -9,26 +10,26 @@ const bettingDetails = () => {
     <div className="w-full overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <tbody className="bg-white dark:bg-gray-800">
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="px-3  py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Erzielen beide Teams <br></br>ein Tor?
+            <tr className="bg-white dark:bg-gray-800">
+                    <th scope="row" className="px-3  py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {detailsData.bothTeamsScore.question}
                     </th>
-                    <td class="px-3 py-2 sm:px-6 sm:py-4 text-green-500 font-bold">
-                        Ja
+                    <td className="px-3 py-2 sm:px-6 sm:py-4 text-green-500 font-bold">
+                        {detailsData.bothTeamsScore.answer1}
                     </td>
-                    <td class="px-3 py-2 sm:px-6 sm:py-4">
-                        Nein
+                    <td className="px-3 py-2 sm:px-6 sm:py-4">
+                        {detailsData.bothTeamsScore.answer2}
                     </td>
                 </tr>
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Wer gewinnt?
+                <tr className="bg-white dark:bg-gray-800">
+                    <th scope="row" className="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {detailsData.winner.question}
                     </th>
-                    <td class="px-3 py-2 sm:px-6 sm:py-4">
-                        FC Barcelona
+                    <td className="px-3 py-2 sm:px-6 sm:py-4">
+                        {detailsData.winner.answer1}
                     </td>
-                    <td class="px-3 py-2 sm:px-6 sm:py-4">
-                        Liverpool
+                    <td className="px-3 py-2 sm:px-6 sm:py-4">
+                        {detailsData.winner.answer2}
                     </td>
                 </tr>
                 <tr class="bg-white dark:bg-gray-800">
