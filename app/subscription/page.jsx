@@ -170,12 +170,9 @@ const SubscriptionInfo = () => {
                     </button>
                   </form>
                 </div>
-
+            <br></br>
             <PayPalScriptProvider options={{ "client-id": CLIENT_ID , currency: "EUR"}}>
             <div>
-                <div className="wrapper">
-                </div>
-                <br></br>
                     <PayPalButtons
                         style={{ layout: "vertical" }}
                         createOrder={createOrder}
