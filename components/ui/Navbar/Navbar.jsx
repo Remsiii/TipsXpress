@@ -1,4 +1,5 @@
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from "react-router-dom";
 import { createServerSupabaseClient } from '@/app/supabase-server';
 
 import Logo from '@/components/icons/Logo';
@@ -14,21 +15,21 @@ export default async function Navbar() {
 
   return (
     <nav className={s.root}>
-      <a href="#skip" className="sr-only focus:not-sr-only">
+      <a to="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
       <div className="max-w-6xl px-6 mx-auto">
         <div className="relative flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
-            <Link href="/" className={s.logo} aria-label="Logo">
+            <Link to="/" className={s.logo} aria-label="Logo">
               <Logo />
             </Link>
             <nav className="hidden ml-6 space-x-2 lg:block">
-              <Link href="/" className={s.link}>
+              <Link to="/" className={s.link}>
                 Pricing
               </Link>
               {user && (
-                <Link href="/account" className={s.link}>
+                <Link to="/account" className={s.link}>
                   Account
                 </Link>
               )}
@@ -38,7 +39,7 @@ export default async function Navbar() {
             {user ? (
               <SignOutButton />
             ) : (
-              <Link href="/signin" className={s.link}>
+              <Link to="/signin" className={s.link}>
                 Sign in
               </Link>
             )}

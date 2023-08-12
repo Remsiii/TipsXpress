@@ -3,8 +3,8 @@
 import Feed from "@components/Feed";
 import Nav from "@components/Nav";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { useEffect, useState } from "react";
+
 
 const Home = () => {
   const { data: session } = useSession();

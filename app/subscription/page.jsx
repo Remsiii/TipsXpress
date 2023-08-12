@@ -1,15 +1,22 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import PaypalCheckoutButton from "@components/PaypalCheckoutButton";
 import { CLIENT_ID } from '../Config/Config'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { usePayment } from '../context/PaymentContext';
 
 const SubscriptionInfo = () => {
-  //paypal
-
+    //hooks
+    const { hasPaid, setHasPaid } = usePayment();
+    //paypal
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [orderID, setOrderID] = useState(false);
+    const subscriptionPrice = 29; // Beispielpreis für die Subscription
+    const [discountedPrice, setDiscountedPrice] = useState(subscriptionPrice);
+    const [discountedAmount, setDiscountedAmount] = useState(0);
+    const [discountCode, setDiscountCode] = useState('');
+    //discount codes
+    const validDiscountCodes = ["petar10", "daniel10", "jon10"];
 
     // creates a paypal order
     const createOrder = (data, actions) => {
@@ -28,42 +35,39 @@ const SubscriptionInfo = () => {
             });
     };
 
-    // check Approval
-    const onApprove = (data, actions) => {
-        return actions.order.capture().then(function (details) {
-            const { payer } = details;
-            setSuccess(true);
-        });
-    };
-
-    //capture likely error
-    const onError = (data, actions) => {
-        setErrorMessage("An Error occured with your payment ");
-    };
-
-    useEffect(() => {
-        if (success) {
-            alert("Payment successful!!");
-            console.log('Order successful . Your order id is--', orderID);
-        }
-    },[success]);
-
-
-    
-  const subscriptionPrice = 29; // Beispielpreis für die Subscription
-  const [discountedPrice, setDiscountedPrice] = useState(subscriptionPrice);
-  const [discountedAmount, setDiscountedAmount] = useState(0);
-  const [discountCode, setDiscountCode] = useState('');
-  const product = {
-    description: "Design+Code React Hooks Course",
-    price: 19
+   // check Approval
+   const onApprove = (data, actions) => {
+    console.log(`Zahlung erfolgreich! Rabattcode ${discountCode} wurde verwendet. Provision: ${discountedAmount}`);
+    return actions.order.capture().then(function (details) {
+        const { payer } = details;
+        setSuccess(true);
+        setHasPaid(true);
+    });
   };
+
+  //capture likely error
+  const onError = (data, actions) => {
+      setErrorMessage("An Error occured with your payment ");
+  };
+
+  useEffect(() => {
+      if (success) {
+          //alert("Payment successful!!");
+          console.log('Order successful . Your order id is--', orderID);
+      }
+  },[success]);
+    
+  const createSubscription = (data, actions) => {
+    return actions.subscription.create({
+        'plan_id': 'IHRE_PAYPAL_TARIF_ID'
+    });
+}
 
   // Überprüfen, ob ein gespeicherter Discount-Wert vorhanden ist
   useEffect(() => {
     const savedDiscountAmount = localStorage.getItem('discountAmount');
     if (savedDiscountAmount) {
-      setDiscountedAmount(parseFloat(savedDiscountAmount));
+      //setDiscountedAmount(parseFloat(savedDiscountAmount));
     }
   }, []);
 
@@ -73,28 +77,30 @@ const SubscriptionInfo = () => {
     setDiscountedPrice(newPrice);
   }, [discountedAmount]);
 
-  const handleDiscountCodeSubmit = (event) => {
-    event.preventDefault();
-  
-    let newDiscountedAmount = 0;
-  
-    if (discountCode === "Petar10") {
-      const discount = subscriptionPrice * 0.1;
-      newDiscountedAmount = discount;
-    }else{
-        return;
-    }
-  
-    setDiscountedAmount(newDiscountedAmount);
-    setDiscountCode('');
-  
-    // Speichern des Discount-Werts im localStorage
-    localStorage.setItem('discountAmount', newDiscountedAmount.toString());
-  };
-
   const handleDiscountCodeChange = (event) => {
     setDiscountCode(event.target.value);
   };
+
+
+  const handleDiscountCodeSubmit = (event) => {
+    event.preventDefault();
+    
+    const loweredDiscountCode = discountCode.toLowerCase();
+    
+    if (validDiscountCodes.includes(loweredDiscountCode)) {
+        const discount = subscriptionPrice * 0.1; // 10% Rabatt
+        setDiscountedAmount(discount);
+        setDiscountedPrice(subscriptionPrice - discount);
+        
+        console.log(`Rabattcode ${discountCode} wurde verwendet. Provision: ${discount}`);
+    } else {
+        setErrorMessage("Ungültiger Rabattcode.");
+        return;
+    }
+
+    console.log(process.env.PAYPAL_CLIENT_ID);
+
+};
 
   return (
     <div className="px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 bg-clip-padding bg-opacity-60 border border-gray-200" style={{ backdropFilter: 'blur(20px)' }}>
@@ -171,10 +177,11 @@ const SubscriptionInfo = () => {
                   </form>
                 </div>
             <br></br>
-            <PayPalScriptProvider options={{ "client-id": CLIENT_ID , currency: "EUR"}}>
+            <PayPalScriptProvider options={{ "client-id": CLIENT_ID, currency: "EUR"}}>
             <div>
                     <PayPalButtons
                         style={{ layout: "vertical" }}
+                        // createSubscription={createSubscription}
                         createOrder={createOrder}
                         onApprove={onApprove}
                     />

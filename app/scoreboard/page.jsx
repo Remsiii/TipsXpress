@@ -1,23 +1,32 @@
-
 "use client"
 
 import React, { useEffect, useState } from 'react';
 import matchesData from './matchesData.json';
 import Match from './Match';
+import { usePayment } from '../context/PaymentContext';
+import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-
-//   Erzielen beide teams ein tor?
-// Wer gewinnt
-// Over/under
-// Wie viele tore erzielt team 1/2 -Over/Under
 const Scoreboard = () => {
-
+	const { hasPaid } = usePayment();
 	const [matches, setMatches] = useState([]);
+	const navigate = useNavigate();
+
+
+	 useEffect(() => {
+        if (!hasPaid) {
+            navigate("/subscription");
+        }
+    }, [hasPaid, navigate]);
 
 	useEffect(() => {
-	  setMatches(matchesData);
-	}, []);
+        setMatches(matchesData);
+    }, []);
+
+	if (!hasPaid) {
+        return null;
+    }
 
 	const questions = ["Who will score the first goal?", "Will both teams score a goal?"];
 	return (

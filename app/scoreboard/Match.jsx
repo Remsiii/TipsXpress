@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from 'react';
 
 const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, team2Img }) => {
@@ -28,7 +29,10 @@ const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, tea
 							<button className="match-bet-option">3.84</button>
 							<button className="match-bet-option">5.24</button>
 						</div>
-						<a className="match-bet-place text-white/90 shadow-lg" href="/bettingDetails">Zu den Details</a>
+						<Link 
+							className="match-bet-place text-white/90 shadow-lg" 
+							to="/scoreboard/bettingDetails">Zu den Details
+						</Link>
 					</div>
 				</div>
 				<div className="columnScore">
