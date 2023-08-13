@@ -11,7 +11,7 @@ import Scoreboard from './scoreboard/page.jsx';
 import Home from './page.jsx';
 import BettingDetails from './scoreboard/bettingDetails/page.jsx';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 
 export const metadata = {
@@ -21,12 +21,13 @@ export const metadata = {
 
 function PrivateRoute({ children }) {
   const { data: session } = useSession();
-  const navigate = useNavigate();
 
+  const router = useRouter();
+  
   if (session?.user) {
     return children;
   } else {
-    return navigate("/");
+    return router.push("/");
   }
 }
 
@@ -39,7 +40,6 @@ const RootLayout = ({ children, success }) => {
     <body>
     <Provider>
     <PaymentProvider>
-
         <div className='main'>
           <div className='gradient' />
         </div>
@@ -47,16 +47,8 @@ const RootLayout = ({ children, success }) => {
         <main className='app'>
           <Nav />  
       	  
-          {/* <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/subscription' element={<PrivateRoute><SubscriptionInfo /></PrivateRoute>} />
-              <Route path='/scoreboard' element={<PrivateRoute><Scoreboard /></PrivateRoute>} />
-              <Route path='/scoreboard/bettingDetails' element={<PrivateRoute><BettingDetails /></PrivateRoute>} />
-          </Routes>  */}
            {children}
         </main>
-
-  
       </PaymentProvider>
       </Provider>
     </body>
