@@ -1,16 +1,13 @@
 "use client";
 
-import { Link } from "react-router-dom";
+import  Link  from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { usePayment } from '../app/context/PaymentContext';
-import { useNavigate } from "react-router-dom";
 
 
 const Nav = () => {
   const { data: session } = useSession();
-  const { hasPaid } = usePayment();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
@@ -23,7 +20,7 @@ const Nav = () => {
 
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
-      <Link to='/' className='flex gap-2 flex-center'>
+      <Link href='/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/PETABET_Slogen.png'
           alt='logo'
@@ -37,8 +34,8 @@ const Nav = () => {
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
-            {hasPaid && (
-              <Link to='/scoreboard' className='black_btn'>
+            {session?.user?.hasPurchased && (
+              <Link href='/scoreboard' className='black_btn'>
                   Scoreboard
               </Link>
             )}
@@ -47,7 +44,7 @@ const Nav = () => {
               Sign Out
             </button>
 
-            <Link to='/profile'>
+            <Link href='/profile'>
               <Image
                 src={session?.user.image}
                 width={37}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import React from 'react';
 
 const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, team2Img }) => {
@@ -31,7 +31,7 @@ const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, tea
 						</div>
 						<Link 
 							className="match-bet-place text-white/90 shadow-lg" 
-							to="/scoreboard/bettingDetails">Zu den Details
+							href="/scoreboard/bettingDetails">Zu den Details
 						</Link>
 					</div>
 				</div>

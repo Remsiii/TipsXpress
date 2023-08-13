@@ -16,6 +16,7 @@ const handler = NextAuth({
       // store the user id from MongoDB to session
       const sessionUser = await User.findOne({ email: session.user.email });
       session.user.id = sessionUser._id.toString();
+      session.user.hasPurchased = sessionUser.hasPurchased;
 
       return session;
     },
@@ -32,6 +33,7 @@ const handler = NextAuth({
             email: profile.email,
             username: profile.name.replace(" ", "").toLowerCase(),
             image: profile.picture,
+            hasPurchased: false,
           });
         }
 

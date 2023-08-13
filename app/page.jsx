@@ -47,7 +47,7 @@ const Home = () => {
         ))}
       </div>
     ) : (
-      <a className="buttonSubscribe" href="/subscription">Subscribe!</a>
+      <a className="buttonSubscribe" href="/subscription">Subscribe</a>
       
     )}
 

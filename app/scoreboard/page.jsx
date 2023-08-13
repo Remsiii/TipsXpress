@@ -3,28 +3,26 @@
 import React, { useEffect, useState } from 'react';
 import matchesData from './matchesData.json';
 import Match from './Match';
-import { usePayment } from '../context/PaymentContext';
-import { redirect } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 
 const Scoreboard = () => {
-	const { hasPaid } = usePayment();
 	const [matches, setMatches] = useState([]);
-	const navigate = useNavigate();
-
+	const { data: session } = useSession();
+	const router = useRouter();
 
 	 useEffect(() => {
-        if (!hasPaid) {
-            navigate("/subscription");
+        if (!session?.user?.hasPurchased) {
+			router.push("/subscription");
         }
-    }, [hasPaid, navigate]);
+    }, [session]);
 
 	useEffect(() => {
         setMatches(matchesData);
     }, []);
 
-	if (!hasPaid) {
+	if (!session?.user?.hasPurchased) {
         return null;
     }
 

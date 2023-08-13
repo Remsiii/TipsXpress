@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { CLIENT_ID } from '../Config/Config'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { usePayment } from '../context/PaymentContext';
+import { useSession } from 'next-auth/react';
 
 const SubscriptionInfo = () => {
     //hooks
-    const { hasPaid, setHasPaid } = usePayment();
+    const { data: session } = useSession();
     //paypal
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
@@ -36,14 +36,35 @@ const SubscriptionInfo = () => {
     };
 
    // check Approval
-   const onApprove = (data, actions) => {
+  //  const onApprove = (data, actions) => {
+  //   console.log(`Zahlung erfolgreich! Rabattcode ${discountCode} wurde verwendet. Provision: ${discountedAmount}`);
+  //   return actions.order.capture().then(function (details) {
+  //       const { payer } = details;
+  //       setSuccess(true);
+  //       setHasPaid(true);
+  //   });
+  // };
+
+  const onApprove = (data, actions) => {
     console.log(`Zahlung erfolgreich! Rabattcode ${discountCode} wurde verwendet. Provision: ${discountedAmount}`);
     return actions.order.capture().then(function (details) {
         const { payer } = details;
         setSuccess(true);
         setHasPaid(true);
+
+        // Update user information in the database
+        fetch('/api/purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: session.user.email,  // Assuming payer.email contains the user email
+                hasPurchased: true,
+            }),
+        });
     });
-  };
+};
 
   //capture likely error
   const onError = (data, actions) => {
