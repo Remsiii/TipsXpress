@@ -1,9 +1,7 @@
-"use client";
 import '@styles/global.css';
 
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
-import { PaymentProvider } from './context/PaymentContext';
 import SubscriptionInfo from "./subscription/page.jsx";
 import Scoreboard from './scoreboard/page.jsx';
 import Home from './page.jsx';
@@ -37,7 +35,6 @@ const RootLayout = ({ children, success }) => {
     <html lang='en'>
     <body>
     <Provider>
-    <PaymentProvider>
         <div className='main'>
           <div className='gradient' />
         </div>
@@ -47,7 +44,6 @@ const RootLayout = ({ children, success }) => {
       	  
            {children}
         </main>
-      </PaymentProvider>
     </Provider>
     </body>
   </html>
