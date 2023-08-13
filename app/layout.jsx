@@ -4,8 +4,6 @@ import '@styles/global.css';
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import { PaymentProvider } from './context/PaymentContext';
-import { Routes, Route, Redirect, BrowserRouter, createBrowserRouter, MemoryRouter
-  } from "react-router-dom";
 import SubscriptionInfo from "./subscription/page.jsx";
 import Scoreboard from './scoreboard/page.jsx';
 import Home from './page.jsx';
@@ -23,7 +21,7 @@ function PrivateRoute({ children }) {
   const { data: session } = useSession();
 
   const router = useRouter();
-  
+
   if (session?.user) {
     return children;
   } else {
@@ -50,7 +48,7 @@ const RootLayout = ({ children, success }) => {
            {children}
         </main>
       </PaymentProvider>
-      </Provider>
+    </Provider>
     </body>
   </html>
 
