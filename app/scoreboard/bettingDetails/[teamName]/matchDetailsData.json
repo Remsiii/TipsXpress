@@ -1,0 +1,153 @@
+{
+    "Spiel_1":{
+    "bothTeamsScore": {
+        "question": "Erzielen beide Teams ein Tor?",
+        "answer1": "Ja",
+        "answer2": "Nein"
+    },
+    "winner": {
+        "question": "Wer gewinnt?",
+        "answer1": "FC Barcelona",
+        "answer2": "Liverpool"
+    },
+    "overUnder": {
+        "question": "Over/Under",
+        "answer1": "Black",
+        "answer2": "Accessories"
+    },
+    "overUnderStats": {
+        "data": [
+            {
+                "value": 0.5,
+                "over": 1.04,
+                "under": 9.10
+            },
+            {
+                "value": 1.5,
+                "over": 3.59,
+                "under": 3.56
+            },
+            {
+                "value": 2.5,
+                "over": 8.35,
+                "under": 2.46
+            },
+            {
+                "value": 3.5,
+                "over": 2.46,
+                "under": 9.10
+            },
+            {
+                "value": 4.5,
+                "over": 13.2,
+                "under": 9.10
+            },
+            {
+                "value": 5.5,
+                "over": 1.04,
+                "under": 2.46
+            }
+        ]
+    },
+    "GoalsTeam1": {
+        "data": [
+            {
+                "value": 0.5,
+                "over": 1.04,
+                "under": 9.10
+            },
+            {
+                "value": 1.5,
+                "over": 3.59,
+                "under": 3.56
+            },
+            {
+                "value": 2.5,
+                "over": 8.35,
+                "under": 2.46
+            },
+            {
+                "value": 3.5,
+                "over": 2.46,
+                "under": 9.10
+            }
+        ]
+    }
+},
+
+    "Spiel_2":{
+        "bothTeamsScore": {
+            "question": "Erzielen beide Teams ein Tor?",
+            "answer1": "Ja",
+            "answer2": "Nein"
+        },
+        "winner": {
+            "question": "Wer gewinnt?",
+            "answer1": "Real Madrid",
+            "answer2": "Chelsea"
+        },
+        "overUnder": {
+            "question": "Over/Under",
+            "answer1": "Black",
+            "answer2": "Accessories"
+        },
+        "overUnderStats": {
+            "data": [
+                {
+                    "value": 0.5,
+                    "over": 1.04,
+                    "under": 9.10
+                },
+                {
+                    "value": 1.5,
+                    "over": 3.59,
+                    "under": 3.56
+                },
+                {
+                    "value": 2.5,
+                    "over": 8.35,
+                    "under": 2.46
+                },
+                {
+                    "value": 3.5,
+                    "over": 2.46,
+                    "under": 9.10
+                },
+                {
+                    "value": 4.5,
+                    "over": 13.2,
+                    "under": 9.10
+                },
+                {
+                    "value": 5.5,
+                    "over": 1.04,
+                    "under": 2.46
+                }
+            ]
+        },
+        "GoalsTeam1": {
+            "data": [
+                {
+                    "value": 0.5,
+                    "over": 1.04,
+                    "under": 9.10
+                },
+                {
+                    "value": 1.5,
+                    "over": 3.59,
+                    "under": 3.56
+                },
+                {
+                    "value": 2.5,
+                    "over": 8.35,
+                    "under": 2.46
+                },
+                {
+                    "value": 3.5,
+                    "over": 2.46,
+                    "under": 9.10
+                }
+            ]
+        }
+        }
+}

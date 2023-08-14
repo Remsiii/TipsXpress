@@ -5,7 +5,7 @@ import Provider from "@components/Provider";
 import SubscriptionInfo from "./subscription/page.jsx";
 import Scoreboard from './scoreboard/page.jsx';
 import Home from './page.jsx';
-import BettingDetails from './scoreboard/bettingDetails/page.jsx';
+import BettingDetails from './scoreboard/bettingDetails/[teamName]/page.jsx';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
 

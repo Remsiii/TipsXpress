@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from 'react';
 
-const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, team2Img }) => {
+const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1Img, team2Img }) => {
 	return (
 		<div className="match">
 			<div className="match-header">
@@ -29,13 +29,15 @@ const Match = ({ league, team1, team2, score1, score2, date, time, team1Img, tea
 							<button className="match-bet-option">3.84</button>
 							<button className="match-bet-option">5.24</button>
 						</div>
-						<Link 
-							className="match-bet-place text-white/90 shadow-lg" 
-							href="/scoreboard/bettingDetails">Zu den Details
-						</Link>
+					<Link 
+						className="match-bet-place text-white/90 shadow-lg" 
+						href="/scoreboard/bettingDetails/[teamName]"
+						as={`/scoreboard/bettingDetails/${spiel}`}>
+						Zu den Details
+					</Link>
 					</div>
 				</div>
-				<div className="columnScore">
+				<div className="columnScore"> 
 					<div className="team team--away">
 						<div className="team-logo">
 					

@@ -1,25 +1,20 @@
-[
-    {
+{
+    "Spiel_1": {
       "league": "English Premier League",
       "team1": "Chelsea",
       "team2": "Man Utd",
-      "score1": "3",
-      "score2": "2",
       "date": "3 May at",
       "time": "17:30",
       "team1Img": "https://assets.codepen.io/285131/chelsea.svg",
       "team2Img": "https://resources.premierleague.com/premierleague/badges/t1.svg"
     },
-    {
+    "Spiel_2": {
       "league": "English Premier League",
       "team1": "Man City",
       "team2": "Arsenal",
-      "score1": "4",
-      "score2": "1",
       "date": "5 May at",
       "time": "13:30",
       "team1Img": "https://upload.wikimedia.org/wikipedia/de/thumb/0/09/Wappen_Manchester_City_2016.svg/150px-Wappen_Manchester_City_2016.svg.png",
       "team2Img": "https://upload.wikimedia.org/wikipedia/de/thumb/3/32/FC_Arsenal_%28seit_2002%29.svg/1200px-FC_Arsenal_%28seit_2002%29.svg.png"
     }
-  ]
-  
+}

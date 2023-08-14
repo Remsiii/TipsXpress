@@ -31,8 +31,8 @@ const Scoreboard = () => {
 		<>
 		<h1 className='mt-[-50px] mb-[35px] text-5xl font-serif'>Scoreboard</h1>
 		<div className="containerFootballScore mt-10" style={{ marginBottom: '80px' }}>
-		{matches.map((match, index) => (
-          <Match key={index} {...match} />
+		{Object.entries(matches).map(([spiel, matchData], index) => (
+          <Match key={index} spiel={spiel} {...matchData} />
         ))}
 		</div>
 		</>
