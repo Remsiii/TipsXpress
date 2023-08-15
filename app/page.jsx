@@ -4,6 +4,7 @@ import Feed from "@components/Feed";
 import Nav from "@components/Nav";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useEffect, useState } from "react";
+import  Link  from "next/link";
 
 
 const Home = () => {
@@ -47,7 +48,10 @@ const Home = () => {
         ))}
       </div>
     ) : (
-      <a className="buttonSubscribe" href="/subscription">Subscribe</a>
+      <Link href="/subscription" className="buttonSubscribe"> 
+      Subscribe
+      </Link>
+      
       
     )}
 

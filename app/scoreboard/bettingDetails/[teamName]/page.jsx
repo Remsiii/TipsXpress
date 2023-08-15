@@ -3,7 +3,8 @@
 import React from 'react';
 import detailsData from './matchDetailsData.json';
 import { useState, useEffect } from "react";
-import { useCurrentRoute } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const bettingDetails = ({ params }) => {
 
@@ -11,6 +12,18 @@ const bettingDetails = ({ params }) => {
     // const teamName = route.params.teamName;
     const { teamName } = params;
 
+    
+    const { data: session } = useSession();
+	const router = useRouter();
+    useEffect(() => {
+        if (!session?.user?.hasPurchased) {
+			router.push("/subscription");
+        }
+    }, [session]);
+
+    if (!session?.user?.hasPurchased) {
+        return null;
+    }
 
     // const matchDetails = detailsData[teamName];
 
@@ -100,6 +113,7 @@ const bettingDetails = ({ params }) => {
                 </div>
             </div>
             </div>
+            <br></br>
         </>
     );
 };

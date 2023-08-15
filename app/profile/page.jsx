@@ -46,10 +46,23 @@ const MyProfile = () => {
       }
     }
   };
+  
+  const handleSubscriptionCancelation = async () =>
+  {
+    fetch('https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/cancel', {
+    method: 'POST',
+    headers: {
+        'X-PAYPAL-SECURITY-CONTEXT': '{"consumer":{"accountNumber":1181198218909172527,"merchantId":"5KW8F2FXKX5HA"},"merchant":{"accountNumber":1659371090107732880,"merchantId":"2J6QB8YJQSJRJ"},"apiCaller":{"clientId":"AdtlNBDhgmQWi2xk6edqJVKklPFyDWxtyKuXuyVT-OgdnnKpAVsbKHgvqHHP","appId":"APP-6DV794347V142302B","payerId":"2J6QB8YJQSJRJ","accountNumber":"1659371090107732880"},"scopes":["https://api-m.paypal.com/v1/subscription/.*","https://uri.paypal.com/services/subscription","openid"]}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({ "reason": "Not satisfied with the service" })
+});
+  }
 
   return (
     <Profile
-      name='My'
+      name={session?.user.name}
       desc='Willkommen auf Ihrer personalisierten Profilseite. Hier können Sie Ihr Profil und Ihre Zahlungen bearbeiten'
       data={myPosts}
       handleEdit={handleEdit}
