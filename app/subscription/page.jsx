@@ -13,6 +13,7 @@ const SubscriptionInfo = () => {
     const [hasPaid, setHasPaid] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [orderID, setOrderID] = useState(false);
+    const [loading, setLoading] = useState(true);
     const subscriptionPrice = 29; // Beispielpreis für die Subscription
     const [discountedPrice, setDiscountedPrice] = useState(subscriptionPrice);
     const [discountedAmount, setDiscountedAmount] = useState(0);
@@ -115,6 +116,7 @@ const SubscriptionInfo = () => {
 
 useEffect(() => {
   if (session && session.user) {
+      setLoading(false);
       initializePayPalButton();
   }
 }, [session]);
@@ -149,7 +151,9 @@ const initializePayPalButton = () => {
   }
   }).render(container);
 };
-
+if (loading) {
+  return <div>Lade Daten...</div>;
+}
 
   return (
     <div className="px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 bg-clip-padding bg-opacity-60 border border-gray-200" style={{ backdropFilter: 'blur(20px)' }}>
