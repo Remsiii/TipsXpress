@@ -57,7 +57,7 @@ const MyProfile = () => {
         'Accept': 'application/json'
     },
     body: JSON.stringify({ "reason": "Not satisfied with the service" })
-});
+  });
   }
 
   return (
