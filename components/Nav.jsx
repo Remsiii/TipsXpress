@@ -26,7 +26,7 @@ const Nav = () => {
           alt='logo'
           width={200}
           height={200}
-          className='object-contain'
+          className='object-contain md:w-[200px] md:h-[200px] w-[150px] h-[150px] ml-[-15px]' 
         />
       </Link>
 
@@ -47,8 +47,8 @@ const Nav = () => {
             <Link href='/profile'>
               <Image
                 src={session?.user.image}
-                width={37}
-                height={37}
+                width={40}
+                height={40}
                 className='rounded-full'
                 alt='profile'
               />
@@ -79,8 +79,8 @@ const Nav = () => {
           <div className='flex'>
             <Image
               src={session?.user.image}
-              width={37}
-              height={37}
+              width={42}
+              height={42}
               className='rounded-full'
               alt='profile'
               onClick={() => setToggleDropdown(!toggleDropdown)}

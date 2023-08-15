@@ -114,19 +114,18 @@ const SubscriptionInfo = () => {
 
 };
 
+const handleScriptLoad = () => {
+  initializePayPalButton();
+}
+
 useEffect(() => {
   if (session && session.user) {
       setLoading(false);
-      initializePayPalButton();
+        handleScriptLoad();
   }
 }, [session]);
 
 const initializePayPalButton = () => {
-  if (!window.paypal) {
-      console.warn("PayPal SDK nicht geladen!");
-      return;
-  }
-
   const container = document.getElementById('paypal-button-container-P-5TF20044YG102723UMTNY36I');
 
   if (!container || container.children.length > 0) {
@@ -151,6 +150,8 @@ const initializePayPalButton = () => {
   }
   }).render(container);
 };
+
+
 if (loading) {
   return <div>Lade Daten...</div>;
 }
@@ -242,9 +243,8 @@ if (loading) {
         </PayPalScriptProvider> */}
 
           
-<Script 
-    src="https://www.paypal.com/sdk/js?client-id=Ac1FzCCsFUSiVKLJRoOWCpg-T-LQe_GoGSRaiYwIdqPuhRuEgpoxr7qkPKyjf9CnBatcJmNCVnhFOYwT&vault=true&intent=subscription"
-/>
+<Script src="https://www.paypal.com/sdk/js?client-id=Ac1FzCCsFUSiVKLJRoOWCpg-T-LQe_GoGSRaiYwIdqPuhRuEgpoxr7qkPKyjf9CnBatcJmNCVnhFOYwT&vault=true&intent=subscription"
+onLoad={handleScriptLoad}/>
           <div id="paypal-button-container-P-5TF20044YG102723UMTNY36I"></div>
               </div>
             </div>
