@@ -43,7 +43,7 @@ const Home = () => {
               signIn(provider.id);
             }}
           >
-            Subscribe!
+            Sign in
           </a>
         ))}
       </div>

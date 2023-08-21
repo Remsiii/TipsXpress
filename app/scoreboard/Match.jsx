@@ -24,11 +24,6 @@ const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1I
 						</div>
 						<div className="match-score">
 						</div>
-						<div className="match-bet-options">
-							<button className="match-bet-option">1.48</button>
-							<button className="match-bet-option">3.84</button>
-							<button className="match-bet-option">5.24</button>
-						</div>
 					<Link 
 						className="match-bet-place text-white/90 shadow-lg" 
 						href="/scoreboard/bettingDetails/[teamName]"

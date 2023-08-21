@@ -111,6 +111,10 @@ const bettingDetails = ({ params }) => {
                         </tbody>
                     </table>
                 </div>
+                <center>
+                    
+                <a >Mein informationen sind richtig</a>
+                </center>
             </div>
             </div>
             <br></br>
