@@ -10,16 +10,16 @@ const MyProfile = () => {
 
   const [myPosts, setMyPosts] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch(`/api/users/${session?.user.id}/posts`);
-      const data = await response.json();
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const response = await fetch(`/api/users/${session?.user.id}/posts`);
+  //     const data = await response.json();
 
 
-    };
+  //   };
 
-    if (session?.user.id) fetchPosts();
-  }, [session?.user.id]);
+  //   if (session?.user.id) fetchPosts();
+  // }, [session?.user.id]);
 
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`);
@@ -60,7 +60,7 @@ const MyProfile = () => {
 
   return (
     <Profile
-      name={session?.user.name}
+      // name={session?.user.name}
       desc='Willkommen auf Ihrer personalisierten Profilseite. Hier können Sie Ihr Profil und Ihre Zahlungen bearbeiten'
       data={myPosts}
       handleEdit={handleEdit}
