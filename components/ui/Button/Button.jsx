@@ -2,7 +2,7 @@
 import cn from "classnames"
 import React, { forwardRef, useRef } from "react"
 
-import LoadingDots from "@/components/ui/LoadingDots"
+import LoadingDots from "@components/ui/LoadingDots"
 
 import styles from "./Button.module.css"
 

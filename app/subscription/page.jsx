@@ -1,19 +1,11 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { CLIENT_ID } from '../Config/Config'
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSession } from 'next-auth/react';
-import Script from 'next/script'
+import Link from 'next/link';
 
 const SubscriptionInfo = () => {
-    //hooks
-    const { data: session } = useSession();
+
     //paypal
-    const [success, setSuccess] = useState(false);
-    const [hasPaid, setHasPaid] = useState(false);
-    const [ErrorMessage, setErrorMessage] = useState("");
-    const [orderID, setOrderID] = useState(false);
-    const [loading, setLoading] = useState(true);
     const subscriptionPrice = 29; // Beispielpreis für die Subscription
     const [discountedPrice, setDiscountedPrice] = useState(subscriptionPrice);
     const [discountedAmount, setDiscountedAmount] = useState(0);
@@ -22,58 +14,7 @@ const SubscriptionInfo = () => {
     //discount codes
     const validDiscountCodes = ["petar10", "daniel10", "jon10"];
 
-  // useEffect(() => {
-  //     if (!session?.user?.hasPurchased) {
-  //   router.push("/subscription");
-  //     }
-  // }, [session]);
-
-  // if (!session?.user?.hasPurchased) {
-  //     return null;
-  // }
-
-  
-    // creates a paypal order
-    const createOrder = (data, actions) => {
-        return actions.order.create({
-            purchase_units: [
-                {
-                    description: "Betting Tips",
-                    amount: {
-                        value: 20,
-                    },
-                },
-            ],
-        }).then((orderID) => {
-                setOrderID(orderID);
-                return orderID;
-            });
-    };
-
-
-  const addPurchaseToDatabase = () => {
-    console.log(`Zahlung erfolgreich! Rabattcode ${discountCode} wurde verwendet. Provision: ${discountedAmount}`);
-        setSuccess(true);
-        setHasPaid(true);
-
-        // Update user information in the database
-        fetch('/api/purchase', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: session.user.email,  // Assuming payer.email contains the user email
-                hasPurchased: true,
-            }),
-        });
-};
-
   //capture likely error
-  const onError = (data, actions) => {
-      setErrorMessage("An Error occured with your payment ");
-  };
-    
 
   // Überprüfen, ob ein gespeicherter Discount-Wert vorhanden ist
   useEffect(() => {
@@ -110,52 +51,7 @@ const SubscriptionInfo = () => {
         return;
     }
 
-    console.log(process.env.PAYPAL_CLIENT_ID);
-
 };
-
-const handleScriptLoad = () => {
-  initializePayPalButton();
-}
-
-useEffect(() => {
-  if (session && session.user) {
-      setLoading(false);
-        handleScriptLoad();
-  }
-}, [session]);
-
-const initializePayPalButton = () => {
-  const container = document.getElementById('paypal-button-container-P-5TF20044YG102723UMTNY36I');
-
-  if (!container || container.children.length > 0) {
-      return;
-  }
-
-  window.paypal.Buttons({
-    style: {
-      shape: 'rect',
-      color: 'gold',
-      layout: 'vertical',
-      label: 'paypal'
-  },
-  createSubscription: function(data, actions) {
-      return actions.subscription.create({
-          plan_id: 'P-5TF20044YG102723UMTNY36I'
-      });
-  },
-  onApprove: function(data, actions) {
-      // alert(data.subscriptionID); // Optionaler Erfolgsnachricht für den Abonnenten
-      addPurchaseToDatabase();
-  }
-  }).render(container);
-};
-
-
-if (loading) {
-  return <div>Lade Daten...</div>;
-}
-
   return (
     <div className="px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 bg-clip-padding bg-opacity-60 border border-gray-200" style={{ backdropFilter: 'blur(20px)' }}>
       <div className='flex pt-[30px] px-[40px]'>
@@ -231,21 +127,11 @@ if (loading) {
                   </form>
                 </div>
             <br></br>
-            {/* <PayPalScriptProvider options={{ "client-id": CLIENT_ID, currency: "EUR"}}>
-            <div>
-                    <PayPalButtons
-                        style={{ layout: "vertical" }}
-                        // createSubscription={createSubscription}
-                        createOrder={createOrder}
-                        onApprove={onApprove}
-                    />
-            </div>
-        </PayPalScriptProvider> */}
-
-          
-<Script src="https://www.paypal.com/sdk/js?client-id=Ac1FzCCsFUSiVKLJRoOWCpg-T-LQe_GoGSRaiYwIdqPuhRuEgpoxr7qkPKyjf9CnBatcJmNCVnhFOYwT&vault=true&intent=subscription"
-onLoad={handleScriptLoad}/>
-          <div id="paypal-button-container-P-5TF20044YG102723UMTNY36I"></div>
+            <Link href='/subscription/register'>
+            <button class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+              Register Now!
+            </button>
+            </Link>
               </div>
             </div>
           </div>

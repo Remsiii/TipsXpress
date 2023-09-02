@@ -5,6 +5,7 @@ import matchesData from './matchesData.json';
 import Match from './Match';
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import useAuthModal from "@hooks/useAuthModal"
 
 
 const Scoreboard = () => {

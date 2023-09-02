@@ -2,12 +2,12 @@ import '@styles/global.css';
 
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
-import SubscriptionInfo from "./subscription/page.jsx";
-import Scoreboard from './scoreboard/page.jsx';
-import Home from './page.jsx';
 import BettingDetails from './scoreboard/bettingDetails/[teamName]/page.jsx';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import SupabaseProvider from '@providers/SupabaseProvider';
+import UserProvider from '@providers/UserProvider';
+import ModalProvider from '@providers/ModalProvider';
 
 
 export const metadata = {
@@ -33,20 +33,24 @@ const RootLayout = ({ children, success }) => {
   return (
 
     <html lang='en'>
-    <body>
-    <Provider>
-        <div className='main'>
-          <div className='gradient' />
-        </div>
+      <body>
+        <SupabaseProvider>
+          <UserProvider>
+           <ModalProvider/>
+            {/* <Provider> */}
+              <div className='main'>
+                <div className='gradient' />
+              </div>
 
-        <main className='app'>
-          <Nav />  
-      	  
-           {children}
-        </main>
-    </Provider>
-    </body>
-  </html>
+              <main className='app pt-[240px]'>
+                <Nav />
+                {children}
+              </main>
+            {/* </Provider> */}
+          </UserProvider>
+        </SupabaseProvider>
+      </body>
+    </html>
 
   )
 }
