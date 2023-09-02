@@ -4,14 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from 'react'
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 import NavHeader from "./NavHeader";
 import useAuthModal from "@hooks/useAuthModal";
 import { useUser } from "@hooks/useUser";
 
 const Nav = () => {
-  // const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const router = useRouter();

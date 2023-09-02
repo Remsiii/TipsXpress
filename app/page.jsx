@@ -1,39 +1,31 @@
 "use client";
 
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
-import  Link  from "next/link";
+import Link from "next/link";
 import ClassicUserUI from "@components/ClassicUserUI";
 import PayedUserUI from "@components/PayedUserUI";
+import { useUser } from "@hooks/useUser";
 
 const Home = () => {
-//   const { data: session } = useSession();
-  const [providers, setProviders] = useState(null);
+    const { user } = useUser();
 
-  useEffect(() => {
-    (async () => {
-      const res = await getProviders();
-      setProviders(res);
-    })();
-  }, []);
-  return(
+    return (
 
-    <section > 
+        <section >
 
-
-      <ClassicUserUI />
-
-{/* {!session?.user?.hasPurchased ? (
-      <ClassicUserUI />
-    ) : (
-      <PayedUserUI />
-    )} */}
-
-  
+            {user ? (
+                <PayedUserUI />
+            ) : (
+                <ClassicUserUI />
+            )
+            }
 
 
 
-{/* <div class="fixed inset-0 flex flex-col bg-slate-800 z-40">
+
+
+            {/* <div class="fixed inset-0 flex flex-col bg-slate-800 z-40">
 	<div class="flex justify-between items-center py-2 px-6 h-16 w-full bg-slate-900 text-white z-30 relative">
 		<div class="flex flex-1">
 			<h1 class="site-title m-0">
@@ -104,8 +96,8 @@ const Home = () => {
 </div> 
 </div> */}
 
-</section>
-  );
+        </section>
+    );
 };
 
 export default Home;

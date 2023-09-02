@@ -1,13 +1,10 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
 import Script from 'next/script'
 import Link from 'next/link';
 
 
 const registerPayment = () => {
-    //hooks
-    const { data: session } = useSession();
     //paypal
     const [success, setSuccess] = useState(false);
     const [hasPaid, setHasPaid] = useState(false);

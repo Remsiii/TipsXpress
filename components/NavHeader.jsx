@@ -8,9 +8,9 @@ const NavHeader = ({ onClick, state, menuBtnEl }) => (
         <Image
           src='/assets/images/PETABET_Slogen.png'
           alt='logo'
-          width={250}
-          height={250}
-          className='object-contain md:w-[250px] md:h-[250px] w-[170px] h-[170px] ml-[-15px]'
+          width={200}
+          height={200}
+          className='object-contain md:w-[200px] md:h-[200px] w-[170px] h-[100px] ml-[-15px]'
           priority
         />
       {/* </Link> */}

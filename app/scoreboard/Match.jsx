@@ -3,6 +3,10 @@ import React from 'react';
 
 const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1Img, team2Img }) => {
 	return (
+		<Link 
+						
+						href="/scoreboard/bettingDetails/[teamName]"
+						as={`/scoreboard/bettingDetails/${spiel}`}>
 		<div className="match">
 			<div className="match-header">
 				<div className="match-tournament"><img className="block" src="https://assets.codepen.io/285131/pl-logo.svg" />
@@ -24,12 +28,9 @@ const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1I
 						</div>
 						<div className="match-score">
 						</div>
-					<Link 
-						className="match-bet-place text-white/90 shadow-lg" 
-						href="/scoreboard/bettingDetails/[teamName]"
-						as={`/scoreboard/bettingDetails/${spiel}`}>
-						Zu den Details
-					</Link>
+					
+						<button className="match-bet-place text-white/90 shadow-lg" >Zu den Details</button>
+					
 					</div>
 				</div>
 				<div className="columnScore"> 
@@ -43,6 +44,7 @@ const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1I
 				</div>
 			</div>
 		</div>
+		</Link>
 	);
   };
 

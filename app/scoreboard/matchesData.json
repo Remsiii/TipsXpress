@@ -7,14 +7,5 @@
       "time": "17:30",
       "team1Img": "https://assets.codepen.io/285131/chelsea.svg",
       "team2Img": "https://resources.premierleague.com/premierleague/badges/t1.svg"
-    },
-    "Spiel_2": {
-      "league": "English Premier League",
-      "team1": "Man City",
-      "team2": "Arsenal",
-      "date": "5 May at",
-      "time": "13:30",
-      "team1Img": "https://upload.wikimedia.org/wikipedia/de/thumb/0/09/Wappen_Manchester_City_2016.svg/150px-Wappen_Manchester_City_2016.svg.png",
-      "team2Img": "https://upload.wikimedia.org/wikipedia/de/thumb/3/32/FC_Arsenal_%28seit_2002%29.svg/1200px-FC_Arsenal_%28seit_2002%29.svg.png"
     }
 }

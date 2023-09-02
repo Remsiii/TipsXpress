@@ -4,28 +4,26 @@ import React, { useEffect, useState } from 'react';
 import matchesData from './matchesData.json';
 import Match from './Match';
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 import useAuthModal from "@hooks/useAuthModal"
 
 
 const Scoreboard = () => {
 	const [matches, setMatches] = useState([]);
-	const { data: session } = useSession();
 	const router = useRouter();
 
-	 useEffect(() => {
-        if (!session?.user?.hasPurchased) {
-			router.push("/subscription");
-        }
-    }, [session]);
+	//  useEffect(() => {
+    //     if (!session?.user?.hasPurchased) {
+	// 		router.push("/subscription");
+    //     }
+    // }, [session]);
 
 	useEffect(() => {
         setMatches(matchesData);
     }, []);
 
-	if (!session?.user?.hasPurchased) {
-        return null;
-    }
+	// if (!session?.user?.hasPurchased) {
+    //     return null;
+    // }
 
 	const questions = ["Who will score the first goal?", "Will both teams score a goal?"];
 	return (

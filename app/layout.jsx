@@ -1,9 +1,8 @@
 import '@styles/global.css';
 
 import Nav from "@components/Nav";
-import Provider from "@components/Provider";
 import BettingDetails from './scoreboard/bettingDetails/[teamName]/page.jsx';
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import SupabaseProvider from '@providers/SupabaseProvider';
 import UserProvider from '@providers/UserProvider';
@@ -16,7 +15,6 @@ export const metadata = {
 };
 
 function PrivateRoute({ children }) {
-  const { data: session } = useSession();
 
   const router = useRouter();
 

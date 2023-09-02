@@ -4,7 +4,6 @@ import React from 'react';
 import detailsData from './matchDetailsData.json';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 
 const bettingDetails = ({ params }) => {
 
@@ -13,17 +12,16 @@ const bettingDetails = ({ params }) => {
     const { teamName } = params;
 
     
-    const { data: session } = useSession();
 	const router = useRouter();
-    useEffect(() => {
-        if (!session?.user?.hasPurchased) {
-			router.push("/subscription");
-        }
-    }, [session]);
+    // useEffect(() => {
+    //     if (!session?.user?.hasPurchased) {
+	// 		router.push("/subscription"); 
+    //     }
+    // }, [session]);
 
-    if (!session?.user?.hasPurchased) {
-        return null;
-    }
+    // if (!session?.user?.hasPurchased) {
+    //     return null;
+    // }
 
     // const matchDetails = detailsData[teamName];
 
