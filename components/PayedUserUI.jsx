@@ -4,11 +4,13 @@ import React from 'react'
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useUser } from "@hooks/useUser";
 
 
 const ClassicUserUI = () => {
     const { data: session } = useSession();
     const [providers, setProviders] = useState(null);
+    const { user } = useUser();
 
     useEffect(() => {
         (async () => {
