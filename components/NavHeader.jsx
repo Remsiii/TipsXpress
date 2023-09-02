@@ -10,7 +10,7 @@ const NavHeader = ({ onClick, state, menuBtnEl }) => (
           alt='logo'
           width={200}
           height={200}
-          className='object-contain md:w-[200px] md:h-[200px] w-[170px] h-[100px] ml-[-15px]'
+          className='object-contain md:w-[200px] md:h-[200px] w-[170px] h-[100px] ml-[-15px] mt-[-10px]'
           priority
         />
       {/* </Link> */}
