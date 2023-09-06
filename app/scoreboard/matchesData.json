@@ -3,9 +3,11 @@
       "league": "English Premier League",
       "team1": "Chelsea",
       "team2": "Man Utd",
-      "date": "3 May at",
+      "date": "Heute um",
       "time": "17:30",
       "team1Img": "https://assets.codepen.io/285131/chelsea.svg",
-      "team2Img": "https://resources.premierleague.com/premierleague/badges/t1.svg"
+      "team2Img": "https://resources.premierleague.com/premierleague/badges/t1.svg",
+      "SpielTips": "1",
+      "Text": "Chelsea gewinnt in der ersten Halbzeit"
     }
 }

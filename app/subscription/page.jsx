@@ -1,6 +1,9 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import useAuthModal from '@hooks/useAuthModal';
+import { useUser } from "@hooks/useUser";
+import { useRouter } from 'next/navigation';
 
 const SubscriptionInfo = () => {
 
@@ -9,7 +12,17 @@ const SubscriptionInfo = () => {
     const [discountedPrice, setDiscountedPrice] = useState(subscriptionPrice);
     const [discountedAmount, setDiscountedAmount] = useState(0);
     const [discountCode, setDiscountCode] = useState('');
+    const router = useRouter();
+    const authModal = useAuthModal();
+    const { user } = useUser();
 
+    const onClick = () => { 
+        if (!user) {
+          return authModal.onOpen();
+        }else{
+          return router.push('/subscription/register');
+        }
+      };
     //discount codes
     const validDiscountCodes = ["petar10", "daniel10", "jon10"];
 
@@ -126,11 +139,11 @@ const SubscriptionInfo = () => {
                   </form>
                 </div>
             <br></br>
-            <Link href='/subscription/register'>
-            <button class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+            <button // href='/subscription/register'
+                onClick={onClick}
+               className="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
               Register Now!
             </button>
-            </Link>
               </div>
             </div>
           </div>

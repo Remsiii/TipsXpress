@@ -9,8 +9,9 @@ const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1I
 						as={`/scoreboard/bettingDetails/${spiel}`}>
 		<div className="match">
 			<div className="match-header">
-				<div className="match-tournament"><img className="block" src="https://assets.codepen.io/285131/pl-logo.svg" />
-				{league}</div>
+				<div className="match-tournament">
+				{league}
+				</div>
 			</div>
 			<div className="match-content">
 				<div className="columnScore">

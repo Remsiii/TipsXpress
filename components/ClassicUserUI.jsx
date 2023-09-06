@@ -52,14 +52,14 @@ const ClassicUserUI = () => {
       position: "bottom",
     },
     dataLabels: {
-      enabled: false,
+      enabled: true,
+      offsetX: 23,
+      formatter: function (val) {
+        return val + '%';
+      }
     },
     tooltip: {
-      shared: true,
-      intersect: false,
-      formatter: function (value) {
-        return value + "%"
-      }
+      enabled: false,
     },
     xaxis: {
       labels: {
@@ -72,7 +72,7 @@ const ClassicUserUI = () => {
           return value + "%"
         }
       },
-      categories: ["Apr", "Mai", "Juni", "Juli", "Aug"],
+      categories: ["Aug", "Juli", "Juni", "Mai", "Apr"],
       axisTicks: {
         show: false,
       },
@@ -106,8 +106,8 @@ const ClassicUserUI = () => {
           label: {
             borderColor: '#00E396',
             style: {
-              color: '#fff',
-              background: '#00E396',
+              color: '#808080',
+              background: '#808080',
             },
             text: 'Dein Text hier',
           },
@@ -134,39 +134,31 @@ const ClassicUserUI = () => {
           Hol dir die besten Fußball-Wetttipps und erhöhe dir die Gewinnchancen. Meld dich jetzt an!
         </p>
 
-        {/* {!session?.user ? (
-        <div> */}
-        {/* {providers &&
-            Object.values(providers).map((provider) => (
-              <a
-                type='button'
-                className="buttonSubscribe"
-                key={provider.name}
-                onClick={() => {
-                  router.push('/login');
-                }}
-              >
-                Sign in
-              </a>
-            ))}
+        <a
+          type='button'
+          className="buttonSubscribe"
+          onClick={authModal.onOpen}
+        >
+          Sign in
+        </a>
+
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <div style={{ fontFamily: "Josefin Sans", margin: "0 30px 30px" }} className='text-lg text-gray-300 sm:text-xl max-w-2xl text-center font-bold'>PetaBet ist die stärkste Wettorganisation auf dem Österreichischen Markt! Wir beschäftigen uns mit dem Verkauf von professionellen Spielanalysen.
+
+          <br></br><br></br>Du kannst den Verlauf der Spiele verfolgen oder einfach darauf warten, dass wir die Ergebnisse auf unserer Seite angezeigt wird. Ab dann gehst einfach los und holst dir das Geld!
+
+          <br></br>Für mehr Informationen über eine Mitgliedschaft, schreib uns eine Direktnachricht auf dem Instagram-Profil  <strong><a href="https://www.instagram.com/petabet24/" style={{ color: '#c71d1c' }}>@PetaBet_Tips</a></strong>
         </div>
-      ) : ( */}
-
-              <a
-                type='button'
-                className="buttonSubscribe"
-                onClick={authModal.onOpen}
-              >
-                Sign in
-              </a>
-
-        <br></br>
-        <br></br>
-        <br></br>
 
       </section>
 
-      <div className="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 opacity-[.98]">
+
+
+
+      <div className="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 opacity-[.98] mt-10">
         <div className="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
           <dl>
             <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Current Users</dt>
@@ -191,6 +183,7 @@ const ClassicUserUI = () => {
         </div>
 
       </div>
+
     </>
   )
 }

@@ -7,24 +7,36 @@ import Link from "next/link";
 import { useUser } from "@hooks/useUser";
 
 
+
 const ClassicUserUI = () => {
-    const { user } = useUser();
+    const { userDetails } = useUser();
+
 
     return (
 
 
         <section className='w-full flex-center flex-col'>
 
-            <h1 className='head_text text-center'>
-                Hier sind die heitigen Tipps
-                <br />
-                <span className='orange_gradient text-center'>PetaBet</span>
+            <h1 className='mt-5 text-5xl font-extrabold leading-[1.15] text-gray-800 sm:text-5xl text-center'>
+                Super, du hast bezahlt! 
+                
+               
             </h1>
-
+            <div className='text-2xl font-bold text-gray-700 text-center mt-5 text-5xl leading-[1.15] text-black sm:text-5xl'> Hier sind die heitigen Tipps</div>
+            <br></br>
+            {userDetails?.hasPaid ? (
                 <Link href="/scoreboard" className="buttonSubscribe">
                     Scoreboard
                 </Link>
+            ) : (
+                <Link href="/subscription" className="buttonSubscribe">
+                    Start Now!
+                </Link>
+            )
+            }
+
         </section>
+
     )
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect,  useState } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { 
@@ -10,8 +10,16 @@ import {
 import { useRouter } from 'next/navigation';
 
 import useAuthModal from "@hooks/useAuthModal";
+import {createClient} from "@supabase/supabase-js";
 
 import Modal from './Modal';
+
+ const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
+
+
 
 const AuthModal = () => {
   const { session } = useSessionContext();
@@ -19,6 +27,18 @@ const AuthModal = () => {
   const { onClose, isOpen } = useAuthModal();
   
   const supabaseClient = useSupabaseClient();
+
+  const [full_name, setFullName] = useState(String);
+  const [email, setEmail] = useState(String);
+  async function createUser() {
+    await supabase
+      .from('users')
+      .insert([
+        { email, full_name }
+      ])
+      .single();
+  }
+
 
   useEffect(() => {
     if (session) {
@@ -41,7 +61,7 @@ const AuthModal = () => {
       onChange={onChange} 
     >
       <Auth
-        supabaseClient={supabaseClient}
+        supabaseClient={supabase}
         providers={['google']}
         // magicLink={true}
         appearance={{

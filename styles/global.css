@@ -354,7 +354,7 @@ textarea {
 }
 
 .match-date, .match-referee {
-	font-size: 14px;
+	font-size: 16px;
 	color: var(--color-text-secondary);
 }
 
