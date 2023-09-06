@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "@types/react": "18.2.21",
-    "daisyui": "^3.6.4",
     "sass": "^1.63.4",
     "supabase": "^1.88.0",
     "typescript": "5.2.2"
