@@ -1,7 +1,6 @@
 import '@styles/global.css';
 
 import Nav from "@components/Nav";
-import BettingDetails from './scoreboard/bettingDetails/[teamName]/page.jsx';
 import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import SupabaseProvider from '@providers/SupabaseProvider';

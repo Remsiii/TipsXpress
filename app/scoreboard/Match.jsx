@@ -5,8 +5,8 @@ const Match = ({ spiel, league, team1, team2, score1, score2, date, time, team1I
 	return (
 		<Link 
 						
-						href="/scoreboard/bettingDetails/[teamName]"
-						as={`/scoreboard/bettingDetails/${spiel}`}>
+						href="/scoreboard/bettingDetails"
+						>
 		<div className="match">
 			<div className="match-header">
 				<div className="match-tournament">
