@@ -23,7 +23,7 @@ interface WelcomeEmailProps {
 export const WelcomeEmail = ({ firstName, email, lastName, discountCode, username, image  }: WelcomeEmailProps) => (
     <Html>
         <Head />
-        <Preview>Welcome to this newsletter!</Preview>
+        <Preview>Email von {email}</Preview>
         <Body style={main}>
             <Container style={container}>
                 <Heading style={h1}>Welcome {firstName}</Heading>
