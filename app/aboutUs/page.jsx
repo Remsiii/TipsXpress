@@ -10,10 +10,9 @@ const page = () => {
                     <span class="text-xl font-semibold text-yellow-600 uppercase dark:text-yellow-500">
                         About Us</span>
                     <h2 class="mt-4 mb-6 text-2xl font-bold dark:text-gray-300">
-                        We are the large business expert in Europe and Asia</h2>
+                        Wir bieten erfolgreiche und proffesionelle Spieltipps</h2>
                     <p class="mb-10 text-gray-600 dark:text-gray-400 ">
-                        Lorem ipsum dor amet Lorem ipsum dor amet is a dummy text .Lorem ipsum dor amet isopinus
-                        ipaino amet Lorem ipsum dor amet is a dummy text</p>
+                    Unsere Gruppe widmet sich mit höchster Präzision der Analyse äußerst profitabler Spieltipps. Wir setzen modernste Datenanalyse- und Machine-Learning-Technologien ein, um umfassende Einblicke in Sportereignisse und Wettoptionen zu gewinnen. Unsere Experten verfolgen akribisch alle relevanten Statistiken, Trends und Informationen, um Ihnen die besten Spieltipps zu präsentieren.</p>
                 </div>
             </div>
             <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
@@ -30,11 +29,10 @@ const page = () => {
                     </span>
                     <div>
                         <h2 class="mb-4 text-xl font-bold leading-tight dark:text-gray-300 md:text-2xl">
-                            Design
+                        Unsere Spieltipps
                         </h2>
                         <p class="text-base leading-loose text-gray-500 dark:text-gray-400">
-                            Lorem ipsum dor amet Lorem ipsum dor amet is a dummy text .Lorem ipsum dor amet isopinus
-                            ipaino
+                        Erfahren Sie mehr über unsere erfolgreichen und professionellen Spieltipps, die auf präzisen Analysen und modernster Technologie basieren.
                         </p>
                     </div>
                 </div>
@@ -51,11 +49,10 @@ const page = () => {
                     </span>
                     <div>
                         <h2 class="mb-4 text-xl font-bold leading-tight dark:text-gray-300 md:text-2xl">
-                            Strategy
+                        Datenanalyse und Machine Learning:
                         </h2>
                         <p class="text-base leading-loose text-gray-500 dark:text-gray-400">
-                            Lorem ipsum dor amet Lorem ipsum dor amet is a dummy text .Lorem ipsum dor amet isopinus
-                            ipaino
+                        Entdecken Sie, wie wir Datenanalyse- und Machine-Learning-Technologien einsetzen, um umfassende Einblicke in Sportereignisse zu gewinnen und die besten Wettoptionen zu identifizieren.
                         </p>
                     </div>
                 </div>
@@ -71,11 +68,10 @@ const page = () => {
                     </span>
                     <div>
                         <h2 class="mb-4 text-xl font-bold leading-tight dark:text-gray-300 md:text-2xl">
-                            Develop
+                        Experten im Einsatz (Experts at Work):
                         </h2>
                         <p class="text-base leading-loose text-gray-500 dark:text-gray-400">
-                            Lorem ipsum dor amet Lorem ipsum dor amet is a dummy text .Lorem ipsum dor amet isopinus
-                            ipaino
+                        Erfahren Sie, wie unser Expertenteam akribisch alle relevanten Statistiken, Trends und Informationen verfolgt, um Ihnen Spieltipps von höchster Qualität zu präsentieren.
                         </p>
                     </div>
                 </div>
