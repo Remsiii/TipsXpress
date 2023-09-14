@@ -42,12 +42,13 @@ const bettingDetails = ({ params }) => {
             <h1 className='mt-[-50px] mb-[35px] sm:mb-[60px] text-3xl sm:text-5xl font-serif'>Details</h1>
             <div className="w-full sm:w-9/12 md:w-3/4 lg:w-3/4 xl:w-3/4 mx-auto h-[200px]">
     <div className="relative overflow-x-auto rounded-lg overflow-hidden">
-        <div className="w-full overflow-x-auto max-w-screen-lg mx-auto text-sm text-left text-gray-500 dark:bg-gray-800 bg-blue-900">
-            <div className="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-normal dark:text-white text-center text-lg leading-7">
+        <div className="w-full overflow-x-auto max-w-screen-lg mx-auto text-sm text-left text-gray-500 bg-gray-800">
+            <div className="px-3 py-2 sm:px-6 sm:py-4 font-medium whitespace-normal text-white text-center text-lg leading-7">
             Liga: <span className="font-normal">{detailsData.Spiel_1.league}</span> <br />
                 Spiel: <span className="font-normal">{detailsData.Spiel_1.team1} : {detailsData.Spiel_1.team2}</span> <br />
                 Uhrzeit: <span className="font-normal">{detailsData.Spiel_1.time}</span> <br />
                 Spiel-Tipp: <span className="font-normal">{detailsData.Spiel_1.SpielTips}</span> <br />
+                Quote: <span className="font-normal">{detailsData.Spiel_1.Quote}</span> <br />
                 <span className="font-normal">{detailsData.Spiel_1.Text}</span>
             </div>
         </div>
