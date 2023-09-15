@@ -1,13 +1,14 @@
 {
     "Spiel_1": {
-      "league": "EURO Qualifikation Grp. F",
-      "team1": "Belgien",
-      "team2": "Estland",
-      "date": "12.09.2023",
-      "time": "20:45",
-      "team1Img": "https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Belgium_%28civil%29.svg",
-      "team2Img": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg",
-      "SpielTips": "Belgien erzielt Ü 2,5 Tore",
-      "Text": "In der Qualifikationsgruppe F für die EM 2024 ist der große Favorit Belgien auf Kurs. Die „Rode Duivels“ stehen mit zehn Punkten und 8:1 Toren aus den ersten vier Spielen auf Platz 1 der Tabelle. Doch dahinter geht es noch recht eng zu. Die Österreicher verpassen den ersten Rang nur wegen der schwächeren Tordifferenz. Auch Schweden darf sich mit einem Rückstand von vier Zählern noch Hoffnungen auf die Endrunde machen. Am Dienstag im Heimspiel gegen Estland dürfen sich die Belgier somit keinen Ausrutscher leisten. Wir rechnen auch nicht mit einem Patzer und spielen Beligien erzielt über 2,5 Tore zur Qoute 1,5."
+      "league": "Deutschland - Bundesliga",
+      "team1": "Bayern München",
+      "team2": "Leverkusen",
+      "date": "15.09.2023",
+      "time": "20:30",
+      "team1Img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png",
+      "team2Img": "https://upload.wikimedia.org/wikipedia/de/thumb/f/f7/Bayer_Leverkusen_Logo.svg/1200px-Bayer_Leverkusen_Logo.svg.png",
+      "SpielTips": "Sieg Bayern München",
+“Quote”:”1,6”
+      "Text": "Der FC Bayern München startete nach der Pleite im Supercup überragend in die neue Bundesligasaison. Und auch wenn der Gast aus Leverkusen ebenfalls noch ohne Punktverlust in der Bundesliga ist, denken wir, dass die Erfahrung des Rekordmeisters sich am Ende durchsetzten wird. Dementsprechend denken wir, dass am Freitag der FCB als Sieger vom Feld gehen wird."
     }
 }
